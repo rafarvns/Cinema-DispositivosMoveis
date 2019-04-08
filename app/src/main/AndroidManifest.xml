@@ -9,7 +9,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity_cadastro_sala">
+        <activity android:name=".CadastroSala">
         </activity>
         <activity android:name=".CadastroFilme">
         </activity>

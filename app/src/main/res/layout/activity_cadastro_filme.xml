@@ -18,7 +18,7 @@
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView" android:layout_weight="1"
-                android:layout_marginLeft="8dp" android:textSize="24sp" android:textColor="#fff"
+                android:layout_marginLeft="15dp" android:textSize="24sp" android:textColor="#fff"
                 tools:text="Cadastro de Filme" android:textStyle="bold"/>
     </LinearLayout>
     <LinearLayout
@@ -28,57 +28,60 @@
         <TextView
                 android:text="Título"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_marginLeft="8dp"
-                android:layout_marginTop="12dp" android:textStyle="bold"/>
+                android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_marginLeft="15dp"
+                android:layout_marginTop="17dp" android:textStyle="bold"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/editText3" android:hint="Ex: Capitaum Arérica" android:layout_marginLeft="20dp"/>
+                android:id="@+id/editText3" android:hint="Ex: Capitaum Arérica" android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
         <TextView
                 android:text="Duração"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_marginLeft="8dp"
-                android:layout_marginTop="12dp" android:textStyle="bold"/>
+                android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_marginLeft="15dp"
+                android:layout_marginTop="17dp" android:textStyle="bold"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/editText2" android:layout_marginLeft="20dp" android:hint="Preencha em minutos"/>
+                android:id="@+id/editText2" android:layout_marginLeft="20dp" android:hint="Preencha em minutos"
+                android:layout_marginRight="20dp"/>
         <TextView
                 android:text="Classificação Etária"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView5" android:layout_marginLeft="8dp"
-                android:layout_marginTop="12dp" android:textStyle="bold"/>
+                android:layout_height="wrap_content" android:id="@+id/textView5" android:layout_marginLeft="15dp"
+                android:layout_marginTop="17dp" android:textStyle="bold"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/editText5" android:layout_marginLeft="20dp"/>
+                android:id="@+id/editText5" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
         <TextView
                 android:text="Gênero"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView7" android:layout_marginLeft="8dp"
-                android:layout_marginTop="12dp" android:textStyle="bold"/>
+                android:layout_height="wrap_content" android:id="@+id/textView7" android:layout_marginLeft="15dp"
+                android:layout_marginTop="17dp" android:textStyle="bold"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/editText7" android:layout_marginLeft="20dp" android:hint="Ex: Animação"/>
+                android:id="@+id/editText7" android:layout_marginLeft="20dp" android:hint="Ex: Animação"
+                android:layout_marginRight="20dp"/>
         <TextView
                 android:text="Descrição"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView8" android:layout_marginLeft="8dp"
-                android:layout_marginTop="12dp" android:textStyle="bold"/>
+                android:layout_height="wrap_content" android:id="@+id/textView8" android:layout_marginLeft="15dp"
+                android:layout_marginTop="17dp" android:textStyle="bold"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/editText8" android:layout_marginLeft="20dp"/>
+                android:id="@+id/editText8" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
     </LinearLayout>
 </LinearLayout>
