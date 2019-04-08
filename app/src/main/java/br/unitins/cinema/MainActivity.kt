@@ -41,7 +41,7 @@ class MainActivity : Activity() {
         filme = Filme(0, "Filme Teste 6", "img.png", "Apenas um teste mesmo 6", Programacao(Date(), Date(), mock_list_horarios))
         mock_lista_filmes.add(filme)
 
-        Log.i("LST_TESTE", mock_lista_filmes.toString())
+
 
     }
 
