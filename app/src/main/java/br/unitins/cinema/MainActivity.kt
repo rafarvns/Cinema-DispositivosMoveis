@@ -3,7 +3,11 @@ package br.unitins.cinema
 import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.widget.GridLayout
+import br.unitins.cinema.adapters.AdapterListaFilme
 import br.unitins.cinema.model.Filme
 import br.unitins.cinema.model.Horario
 import br.unitins.cinema.model.Programacao
@@ -11,9 +15,15 @@ import java.util.Date
 
 class MainActivity : Activity() {
 
+    var recyclerView: RecyclerView? = null
+    var layoutManager: RecyclerView.LayoutManager? = null
+    var adapterFilme: AdapterListaFilme? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        recyclerView = findViewById(R.id.recycler_lista_filmes)
 
         val horario = Horario(Date())
         val mock_list_horarios = ArrayList<Horario>()
@@ -41,7 +51,11 @@ class MainActivity : Activity() {
         filme = Filme(0, "Filme Teste 6", "img.png", "Apenas um teste mesmo 6", Programacao(Date(), Date(), mock_list_horarios))
         mock_lista_filmes.add(filme)
 
-
+        layoutManager = GridLayoutManager(this, 1)
+        recyclerView!!.layoutManager = layoutManager
+        recyclerView!!.hasFixedSize()
+        adapterFilme = AdapterListaFilme(mock_lista_filmes, this)
+        recyclerView!!.adapter = adapterFilme
 
     }
 
