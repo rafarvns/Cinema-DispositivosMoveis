@@ -24,7 +24,7 @@ class CadastroUsuario : Activity() {
 
         var Funcionario: Dados_Pessoa
         Funcionario = Dados_Pessoa()
-        Funcionario.adiciona_administrador()
+//        Funcionario.adiciona_administrador()
 
         bt_cadastrar.setOnClickListener(){
             mensagem = Funcionario.verifica_email(nome, email, senha, confirma_senha)
