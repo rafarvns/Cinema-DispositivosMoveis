@@ -88,6 +88,7 @@
                 android:id="@+id/txt_confirm_senha"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
+
         <Button
                 android:text="Cadastrar"
                 android:layout_width="match_parent"
