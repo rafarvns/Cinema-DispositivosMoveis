@@ -1,4 +1,4 @@
-package br.unitins.cinema
+package br.unitins.cinema.model
 
 class Dados_Pessoa() {
     var funcionario: ArrayList<Pessoa_Array> = arrayListOf()

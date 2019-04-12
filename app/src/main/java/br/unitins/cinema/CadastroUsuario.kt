@@ -2,6 +2,7 @@ package br.unitins.cinema
 
 import android.app.Activity
 import android.os.Bundle
+import br.unitins.cinema.model.Dados_Pessoa
 import kotlinx.android.synthetic.main.activity_cadastro_usuario.*
 
 class CadastroUsuario : Activity() {

@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/edtcadSessao" android:layout_marginLeft="20dp"
+                android:id="@+id/edtcadSessaoSala" android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
         <TextView
                 android:text="Nome do Filme"
@@ -46,8 +46,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/edtqPoltrona" android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" android:id="@+id/edtcadSessaoFilme"/>
         <TextView
                 android:text="Data da Exibição"
                 android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/edtqPoltrona3" android:layout_marginLeft="20dp"
+                android:id="@+id/edtcadSessaoData" android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
         <TextView
                 android:text="Horário"
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/edtqPoltrona4" android:layout_marginLeft="20dp"
+                android:id="@+id/edtcadSessaoHora" android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
