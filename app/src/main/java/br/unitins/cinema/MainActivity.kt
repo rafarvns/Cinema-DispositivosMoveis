@@ -11,6 +11,7 @@ import br.unitins.cinema.adapters.AdapterListaFilme
 import br.unitins.cinema.model.Filme
 import br.unitins.cinema.model.Horario
 import br.unitins.cinema.model.Programacao
+import br.unitins.cinema.model.SQLiteHelperDB
 import java.util.Date
 
 class MainActivity : Activity() {
@@ -38,23 +39,32 @@ class MainActivity : Activity() {
         mock_list_horarios.add(horario)
 
         val mock_lista_filmes = ArrayList<Filme>()
+
+        val db = SQLiteHelperDB(this);
+
         var filme = Filme(0, "Filme Teste", "img.png", "Apenas um teste mesmo", Programacao(Date(), Date(), mock_list_horarios))
         mock_lista_filmes.add(filme)
+        db.adicionaFilme(filme);
         filme = Filme(0, "Filme Teste 2", "img.png", "Apenas um teste mesmo 2", Programacao(Date(), Date(), mock_list_horarios))
         mock_lista_filmes.add(filme)
+        db.adicionaFilme(filme);
         filme = Filme(0, "Filme Teste 3", "img.png", "Apenas um teste mesmo 3", Programacao(Date(), Date(), mock_list_horarios))
         mock_lista_filmes.add(filme)
+        db.adicionaFilme(filme);
         filme = Filme(0, "Filme Teste 4", "img.png", "Apenas um teste mesmo 4", Programacao(Date(), Date(), mock_list_horarios))
         mock_lista_filmes.add(filme)
+        db.adicionaFilme(filme);
         filme = Filme(0, "Filme Teste 5", "img.png", "Apenas um teste mesmo 5", Programacao(Date(), Date(), mock_list_horarios))
         mock_lista_filmes.add(filme)
+        db.adicionaFilme(filme);
         filme = Filme(0, "Filme Teste 6", "img.png", "Apenas um teste mesmo 6", Programacao(Date(), Date(), mock_list_horarios))
         mock_lista_filmes.add(filme)
+        db.adicionaFilme(filme);
 
         layoutManager = GridLayoutManager(this, 1)
         recyclerView!!.layoutManager = layoutManager
         recyclerView!!.hasFixedSize()
-        adapterFilme = AdapterListaFilme(mock_lista_filmes, this)
+        adapterFilme = AdapterListaFilme(db.getFilmes(), this)
         recyclerView!!.adapter = adapterFilme
 
     }
