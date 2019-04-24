@@ -4,6 +4,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import java.sql.Date
 
 class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, null, VERSAO) {
 
@@ -21,8 +22,8 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
                 filme.titulo + ", " +
                 filme.sinopse + ", " +
                 filme.imagem + ", " +
-                filme.programacao.dtEstreia + ", " +
-                filme.programacao.dtFim + ");"
+                filme.programacao.dtEstreia.toString() + ", " +
+                filme.programacao.dtFim.toString() + ");"
 
         this.database!!.execSQL(insert_filme)
 
@@ -33,14 +34,57 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
             id = id_cursor.getInt(id_cursor.getColumnIndex("id"))
         }
 
-        val finalId = id
-        filme.programacao.lstHorarios.forEach { horario ->
-            this.database!!.execSQL(
-                "INSERT INTO horarios_filme(horario, id_filme) VALUES(" +
-                        "" + horario.hrInicio + ", " + finalId + ");"
-            )
+        if(id != -1) {
+            val finalId = id
+            filme.programacao.lstHorarios.forEach { horario ->
+                this.database!!.execSQL(
+                    "INSERT INTO horarios_filme(horario, id_filme) VALUES(" +
+                            "" + horario.hrInicio.toString() + ", " + finalId + ");"
+                )
+            }
         }
 
+    }
+
+    fun getFilmes(): ArrayList<Filme>{
+
+        val mock_lista_filmes = ArrayList<Filme>();
+
+        val cursor = this.database!!.rawQuery("SELECT * FROM filme;", null);
+
+        if(cursor.moveToFirst()){
+            while(cursor.moveToNext()){
+
+                val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+                val imagem = cursor.getString(cursor.getColumnIndex("imagem"));
+                val sinopse = cursor.getString(cursor.getColumnIndex("sinopse"));
+                val titulo = cursor.getString(cursor.getColumnIndex("titulo"));
+                val dtEstreia = Date.valueOf(cursor.getString(cursor.getColumnIndex("dtEstreia")));
+                val dtFim = Date.valueOf(cursor.getString(cursor.getColumnIndex("dtFim")));
+
+                val mock_lista_horarios = ArrayList<Horario>();
+
+                val cursor_h = this.database!!.rawQuery("SELECT * FROM horarios_filme WHERE id_filme = " + id + ";", null);
+                if(cursor_h.moveToFirst()) {
+                    while (cursor_h.moveToNext()) {
+
+                        val horario = Horario(Date.valueOf(cursor_h.getString(cursor_h.getColumnIndex("horario"))));
+                        mock_lista_horarios.add(horario);
+
+                    }
+                }
+
+                val programacao = Programacao(dtEstreia, dtFim, mock_lista_horarios);
+
+                val filme = Filme(id, titulo, imagem, sinopse, programacao);
+
+                mock_lista_filmes.add(filme);
+
+            }
+
+        }
+
+        return mock_lista_filmes;
 
     }
 
