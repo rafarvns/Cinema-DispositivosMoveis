@@ -2,6 +2,7 @@ package br.unitins.cinema
 
 import android.app.Activity
 import android.os.Bundle
+import br.unitins.cinema.model.Dados_Pessoa
 import kotlinx.android.synthetic.main.activity_login_usuario.*
 
 
@@ -23,7 +24,7 @@ class Entrar_Usuario: Activity() {
         bt_entrar.setOnClickListener() {
             check_administrador.setOnClickListener(){check_administrador.isChecked = true}
             if (check_administrador.isChecked == true){
-                dados_Pessoa.verifica_Email_administrador(email, senha)
+//                dados_Pessoa.verifica_Email_administrador(email, senha)
                 check_administrador.isChecked = false
             }else{
                 mensagem = "Talvez você não seja um administrador," +

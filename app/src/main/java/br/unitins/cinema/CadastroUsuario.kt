@@ -2,6 +2,7 @@ package br.unitins.cinema
 
 import android.app.Activity
 import android.os.Bundle
+import br.unitins.cinema.model.Dados_Pessoa
 import kotlinx.android.synthetic.main.activity_cadastro_usuario.*
 
 class CadastroUsuario : Activity() {
@@ -24,7 +25,7 @@ class CadastroUsuario : Activity() {
 
         var Funcionario: Dados_Pessoa
         Funcionario = Dados_Pessoa()
-        Funcionario.adiciona_administrador()
+//        Funcionario.adiciona_administrador()
 
         bt_cadastrar.setOnClickListener(){
             mensagem = Funcionario.verifica_email(nome, email, senha, confirma_senha)
