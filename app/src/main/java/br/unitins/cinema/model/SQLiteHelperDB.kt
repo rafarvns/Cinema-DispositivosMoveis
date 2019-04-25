@@ -18,12 +18,12 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
 
     fun adicionaFilme(filme: Filme) {
 
-        val insert_filme = "INSERT INTO filme (titulo, sinopse, imagen, dtEstreia, dtFim) values ('" +
+        val insert_filme = "INSERT INTO filme (titulo, sinopse, imagem, dtEstreia, dtFim) values ('" +
                 filme.titulo + "', '" +
                 filme.sinopse + "', '" +
-                filme.imagem + "', '" +
-                filme.programacao.dtEstreia.toString() + "', '" +
-                filme.programacao.dtFim.toString() + "');"
+                filme.imagem + "', " +
+                filme.programacao.dtEstreia.time + ", " +
+                filme.programacao.dtFim.time + ");"
 
         this.database!!.execSQL(insert_filme)
 
@@ -38,8 +38,8 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
             val finalId = id
             filme.programacao.lstHorarios.forEach { horario ->
                 this.database!!.execSQL(
-                    "INSERT INTO horarios_filme(horario, id_filme) VALUES('" +
-                            "" + horario.hrInicio.toString() + "', " + finalId + ");"
+                    "INSERT INTO horarios_filme(horario, id_filme) VALUES(" +
+                            horario.hrInicio.time + ", " + finalId + ");"
                 )
             }
         }
@@ -53,14 +53,13 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
         val cursor = this.database!!.rawQuery("SELECT * FROM filme;", null);
 
         if(cursor.moveToFirst()){
-            while(cursor.moveToNext()){
-
-                val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-                val imagem = cursor.getString(cursor.getColumnIndex("imagen"));
-                val sinopse = cursor.getString(cursor.getColumnIndex("sinopse"));
-                val titulo = cursor.getString(cursor.getColumnIndex("titulo"));
-                val dtEstreia = Date(100);
-                val dtFim = Date(100);
+            do{
+                val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"))
+                val imagem = cursor.getString(cursor.getColumnIndex("imagem"))
+                val sinopse = cursor.getString(cursor.getColumnIndex("sinopse"))
+                val titulo = cursor.getString(cursor.getColumnIndex("titulo"))
+                val dtEstreia = cursor.getLong(cursor.getColumnIndex("dtEstreia"))
+                val dtFim = cursor.getLong(cursor.getColumnIndex("dtFim"))
 
                 val mock_lista_horarios = ArrayList<Horario>();
 
@@ -68,19 +67,19 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
                 if(cursor_h.moveToFirst()) {
                     while (cursor_h.moveToNext()) {
 
-                        val horario = Horario(Date(100));
+                        val horario = Horario(Date(cursor_h.getLong(cursor_h.getColumnIndex("horario"))));
                         mock_lista_horarios.add(horario);
 
                     }
                 }
 
-                val programacao = Programacao(dtEstreia, dtFim, mock_lista_horarios);
+                val programacao = Programacao(Date(dtEstreia), Date(dtFim), mock_lista_horarios);
 
                 val filme = Filme(id, titulo, imagem, sinopse, programacao);
 
                 mock_lista_filmes.add(filme);
 
-            }
+            }while(cursor.moveToNext());
 
         }
 
@@ -99,14 +98,14 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
         //cria tabela filme
         db.execSQL(
             "CREATE TABLE IF NOT EXISTS filme (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "titulo TEXT, sinopse TEXT, imagen TEXT," +
-                    " dtEstreia Date, dtFim Date);"
+                    "titulo TEXT, sinopse TEXT, imagem TEXT," +
+                    " dtEstreia INTEGER, dtFim INTEGER);"
         )
 
         //cria tabela horarios dos filmes
         db.execSQL(
             "CREATE TABLE IF NOT EXISTS horarios_filme(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "horario Date, id_filme INTEGER NOT NULL," +
+                    "horario INTEGER, id_filme INTEGER NOT NULL," +
                     " FOREIGN KEY(id_filme) REFERENCES filme(id));"
         )
 
