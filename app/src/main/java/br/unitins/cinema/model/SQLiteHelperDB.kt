@@ -18,12 +18,12 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
 
     fun adicionaFilme(filme: Filme) {
 
-        val insert_filme = "INSERT INTO filme (titulo, sinopse, imagem, dtEstreia, dtFim) values (" +
-                filme.titulo + ", " +
-                filme.sinopse + ", " +
-                filme.imagem + ", " +
-                filme.programacao.dtEstreia.toString() + ", " +
-                filme.programacao.dtFim.toString() + ");"
+        val insert_filme = "INSERT INTO filme (titulo, sinopse, imagen, dtEstreia, dtFim) values ('" +
+                filme.titulo + "', '" +
+                filme.sinopse + "', '" +
+                filme.imagem + "', '" +
+                filme.programacao.dtEstreia.toString() + "', '" +
+                filme.programacao.dtFim.toString() + "');"
 
         this.database!!.execSQL(insert_filme)
 
@@ -38,8 +38,8 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
             val finalId = id
             filme.programacao.lstHorarios.forEach { horario ->
                 this.database!!.execSQL(
-                    "INSERT INTO horarios_filme(horario, id_filme) VALUES(" +
-                            "" + horario.hrInicio.toString() + ", " + finalId + ");"
+                    "INSERT INTO horarios_filme(horario, id_filme) VALUES('" +
+                            "" + horario.hrInicio.toString() + "', " + finalId + ");"
                 )
             }
         }
@@ -56,11 +56,11 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
             while(cursor.moveToNext()){
 
                 val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-                val imagem = cursor.getString(cursor.getColumnIndex("imagem"));
+                val imagem = cursor.getString(cursor.getColumnIndex("imagen"));
                 val sinopse = cursor.getString(cursor.getColumnIndex("sinopse"));
                 val titulo = cursor.getString(cursor.getColumnIndex("titulo"));
-                val dtEstreia = Date.valueOf(cursor.getString(cursor.getColumnIndex("dtEstreia")));
-                val dtFim = Date.valueOf(cursor.getString(cursor.getColumnIndex("dtFim")));
+                val dtEstreia = Date(100);
+                val dtFim = Date(100);
 
                 val mock_lista_horarios = ArrayList<Horario>();
 
@@ -68,7 +68,7 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
                 if(cursor_h.moveToFirst()) {
                     while (cursor_h.moveToNext()) {
 
-                        val horario = Horario(Date.valueOf(cursor_h.getString(cursor_h.getColumnIndex("horario"))));
+                        val horario = Horario(Date(100));
                         mock_lista_horarios.add(horario);
 
                     }
@@ -97,16 +97,16 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
     override fun onCreate(db: SQLiteDatabase) {
 
         //cria tabela filme
-        this.database!!.execSQL(
-            "CREATE TABLE IF NOT EXISTS filme (id INT PRIMARY KEY AUTOINCREMENT, " +
+        db.execSQL(
+            "CREATE TABLE IF NOT EXISTS filme (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "titulo TEXT, sinopse TEXT, imagen TEXT," +
                     " dtEstreia Date, dtFim Date);"
         )
 
         //cria tabela horarios dos filmes
-        this.database!!.execSQL(
-            "CREATE TABLE IF NOT EXISTS horarios_filme(id INT PRIMARY KEY AUTOINCREMENT, " +
-                    "horario Date, id_filme INT NOT NULL," +
+        db.execSQL(
+            "CREATE TABLE IF NOT EXISTS horarios_filme(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "horario Date, id_filme INTEGER NOT NULL," +
                     " FOREIGN KEY(id_filme) REFERENCES filme(id));"
         )
 

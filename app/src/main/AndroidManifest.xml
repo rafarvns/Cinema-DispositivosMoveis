@@ -7,11 +7,11 @@
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
             android:theme="@style/AppTheme">
+
         <activity android:name=".CadastroSessao">
         </activity>
-        <activity android:name=".model.CadatroFilme">
+        <activity android:name=".CadastroFilme">
         </activity>
         <activity
                 android:name=".Login"
@@ -19,8 +19,6 @@
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".CadastroSala">
-        </activity>
-        <activity android:name=".CadastroFilme">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
