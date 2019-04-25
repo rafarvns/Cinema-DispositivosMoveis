@@ -6,8 +6,8 @@ class Programacao constructor(var dtEstreia: Date, var dtFim: Date, var lstHorar
 
     fun getHorarios(): String {
         var str: String = ""
-        lstHorarios.forEach(){
-            str += "14:00 | "
+        lstHorarios.forEach(){ horario ->
+            str +=  horario.hrInicio.toString() + " | "
         }
         return str
     }
