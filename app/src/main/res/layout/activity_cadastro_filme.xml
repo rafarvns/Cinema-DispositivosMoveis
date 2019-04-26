@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".CadastroFilme" android:id="@+id/linearLayout7">
+        tools:context=".CadastroFilme" >
 
     <LinearLayout
             android:orientation="horizontal"
@@ -84,12 +84,12 @@
                         android:text="Button"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" android:id="@+id/bt_Cancelar_Cadastro"
-                        android:layout_weight="1" tools:text="cancel"/>
+                        android:backgroundTint="@color/corCinza" android:layout_weight="1" tools:text="CANCELAR"/>
                 <Button
                         android:text="Button"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" android:id="@+id/btCadFilme" android:layout_weight="1"
-                        tools:text="cadastrar"/>
+                       android:backgroundTint="@color/corPadraoEscura" tools:text="cadastrar"/>
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
