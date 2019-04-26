@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/titulo" android:hint="Ex: Capitaum Arérica" android:layout_marginLeft="20dp"
+                android:id="@+id/titulo" android:hint="Ex: Capitão América" android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
         <TextView
                 android:text="Duração"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/genero" android:layout_marginLeft="20dp" android:hint="Ex: Animação"
+                android:id="@+id/genero" android:layout_marginLeft="20dp" android:hint="Ex: Aventura"
                 android:layout_marginRight="20dp"/>
         <TextView
                 android:text="Sinopse"
