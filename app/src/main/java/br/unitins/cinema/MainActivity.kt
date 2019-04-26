@@ -27,7 +27,7 @@ class MainActivity : Activity() {
 
         recyclerView = findViewById(R.id.recycler_lista_filmes)
         val db = SQLiteHelperDB(this);
-        layoutManager = GridLayoutManager(this, 1) as RecyclerView.LayoutManager?
+        layoutManager = GridLayoutManager(this, 1)
         recyclerView!!.layoutManager = layoutManager
         recyclerView!!.hasFixedSize()
         adapterFilme = AdapterListaFilme(db.getFilmes(), this)
@@ -38,6 +38,7 @@ class MainActivity : Activity() {
         }
 
     }
+
 }
 
 
