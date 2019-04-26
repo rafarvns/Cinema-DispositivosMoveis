@@ -67,5 +67,12 @@ class Dados_Pessoa() {
         administrador = Pessoa_Array("Julieta Chaves", "paz.julia7@gmail.com", "12345")
         this.administrador.add(administrador)
     }
+    fun verifica_Email_administrador(email: String, senha: String):Boolean{
+        var mensagem: Boolean = false
+        if (administrador.equals(email) && administrador.equals(senha)) {
+            mensagem = true
+        }
+        return mensagem
+    }
 
 }

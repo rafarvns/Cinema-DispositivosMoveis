@@ -12,10 +12,6 @@ class CadastroUsuario : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_usuario)
-        bt_Voltar_Cadastro.setOnClickListener{
-            val intent = Intent (this, R.layout.activity_login_usuario:: class.java)
-            startActivity (intent)
-        }
 
         var nome: String
         var email: String
@@ -37,11 +33,16 @@ class CadastroUsuario : Activity() {
             mensagem = Funcionario.verifica_email(nome, email, senha, confirma_senha)
         }
         if (mensagem.equals("sucesso")){
-
             txt_msg.setText("Usuário inserido com sucesso!")
-        }else{
+            txt_nome.setText("")
+            txt_email.setText("")
+            txt_senha.setText("")
+            txt_confirm_senha.setText("")
+        }else {
             txt_msg.setText(mensagem)
         }
+        bt_Cancelar_Cadastro.setOnClickListener{
+            startActivity(Intent(this, Perfil::class.java))
+        }
     }
-
 }
