@@ -19,9 +19,9 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
 
         val insert_filme = "INSERT INTO filme (titulo, sinopse, duracao, genero, imagem, dtEstreia, dtFim) values ('" +
                 filme.titulo + "', '" +
+                filme.sinopse + "', '" +
                 filme.duracao + "', '" +
                 filme.genero + "', '" +
-                filme.sinopse + "', '" +
                 filme.imagem + "', " +
                 filme.programacao.dtEstreia.time + ", " +
                 filme.programacao.dtFim.time + ");"

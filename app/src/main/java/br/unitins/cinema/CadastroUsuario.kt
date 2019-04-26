@@ -42,7 +42,7 @@ class CadastroUsuario : Activity() {
             txt_msg.setText(mensagem)
         }
         bt_Cancelar_Cadastro.setOnClickListener{
-            startActivity(Intent(this, Perfil::class.java))
+            finish()
         }
     }
 }

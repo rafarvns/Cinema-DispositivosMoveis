@@ -6,8 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".Login"
-        android:id="@+id/linearLayout7">
+        tools:context=".LoginUsuario">
 
     <LinearLayout
             android:orientation="horizontal"
@@ -41,7 +40,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp" android:id="@+id/txt_email_login"/>
         <TextView
-                android:text="Duração"
+                android:text="Senha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/Senha" android:layout_marginLeft="15dp"
                 android:layout_marginTop="17dp" android:textStyle="bold"/>
@@ -54,14 +53,6 @@
                 android:ems="10"
                 android:id="@+id/txt_senha_login" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"/>
-        <CheckBox
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:text="Administrador"
-                android:layout_width="match_parent"
-                android:layout_height="31dp"
-                tools:layout_editor_absoluteX="62dp" android:id="@+id/check_administrador" android:checked="false"
-        />
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:layout_marginTop="30dp" android:layout_marginRight="15dp"
@@ -89,4 +80,5 @@
                     tools:ignore="NotSibling"/>
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
+
 </LinearLayout>

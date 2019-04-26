@@ -32,6 +32,7 @@ class AdapterListaFilme(val lst_filme: ArrayList<Filme>, val context: Context) :
         imageViewHolder.lbl_horarios!!.text = "Estreia: " + lst_filme[i].programacao.dtEstreia.toString() + " |Horários: " +
                                                 lst_filme[i].programacao.getHorarios()
         imageViewHolder.lbl_sinopse!!.text = lst_filme[i].sinopse
+        imageViewHolder.img!!.setImageResource(R.drawable.vingadores)
 
     }
 
@@ -41,13 +42,13 @@ class AdapterListaFilme(val lst_filme: ArrayList<Filme>, val context: Context) :
 
     class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-       // public var img: ImageView? = null
+        public var img: ImageView? = null
         public var lbl_titulo: TextView? = null
         public var lbl_horarios: TextView? = null
         public var lbl_sinopse: TextView? = null
 
         init {
-           // img = itemView.findViewById(R.id.img_lista_filme)
+            img = itemView.findViewById(R.id.img_lista_filme)
             lbl_titulo = itemView.findViewById(R.id.lbl_lista_filme_titulo)
             lbl_horarios = itemView.findViewById(R.id.lbl_lista_filme_horarios)
             lbl_sinopse = itemView.findViewById(R.id.lbl_lista_filme_sinopse)
