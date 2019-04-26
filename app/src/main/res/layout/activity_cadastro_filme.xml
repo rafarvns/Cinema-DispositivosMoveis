@@ -81,15 +81,17 @@
                     android:layout_height="70dp"
                     app:layout_constraintBottom_toBottomOf="parent">
                 <Button
-                        android:text="Button"
+                        android:text="CANCELAR"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" android:id="@+id/bt_Cancelar_Cadastro"
-                        android:backgroundTint="@color/corCinza" android:layout_weight="1" tools:text="CANCELAR"/>
+                        android:background="@color/corCinza" android:layout_weight="1" tools:text="CANCELAR"
+                        android:textColor="@android:color/white" android:textStyle="bold"/>
                 <Button
-                        android:text="Button"
+                        android:text="CADASTRAR"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" android:id="@+id/btCadFilme" android:layout_weight="1"
-                       android:backgroundTint="@color/corPadraoEscura" tools:text="cadastrar"/>
+                        android:background="@color/corPadraoEscura" tools:text="CADASTRAR"
+                        android:textColor="@android:color/white" android:textStyle="bold"/>
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
