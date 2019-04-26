@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import br.unitins.cinema.model.Dados_Pessoa
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_perfil.*
+import kotlinx.android.synthetic.main.activity_perfil_novo.*
 
 class Login : AppCompatActivity() {
 

@@ -2,10 +2,8 @@ package br.unitins.cinema
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity;
-
-import kotlinx.android.synthetic.main.activity_login_antigo.*
-import kotlinx.android.synthetic.main.activity_perfil.*
+import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_perfil_novo.*
 
 class Perfil : AppCompatActivity() {
 
@@ -17,7 +15,7 @@ class Perfil : AppCompatActivity() {
             startActivity(Intent(this, Login::class.java))
         }
         bt_cadastrar_usuario_perfil.setOnClickListener {
-            startActivity(Intent(this, CadastroUsuario::class.java ))
+            startActivity(Intent(this, CadastroUsuario::class.java))
         }
 
         bt_cadastrar_filme_perfil.setOnClickListener {
