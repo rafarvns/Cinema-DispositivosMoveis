@@ -5,11 +5,11 @@ class Dados_Pessoa() {
     var administrador: ArrayList<Pessoa_Array> = arrayListOf()
     var mensagem: String = ""
     fun verifica_email(nome: String, email: String, senha: String,
-                        confirma_senha: String): String{
+                       confirma_senha: String): String{
         var cont_init: Boolean
         cont_init = true
         while (cont_init){
-                //confere se o email inserido já está no array
+            //confere se o email inserido já está no array
             if (funcionario.equals(email)) {
                 //imprime uma mensagem de advertencia
                 mensagem = "O endereço de e-mail inserido já se encontra em uso"
@@ -18,14 +18,16 @@ class Dados_Pessoa() {
                 //verifica a senha inserida
                 mensagem = verifica_senha(senha, confirma_senha)
                 if (mensagem == "sucesso"){
+                    var funcionario: Pessoa_Array
+                    funcionario = Pessoa_Array(nome, email, senha)
                     //chama a função de inserção no array do funcionario
-                    cadastra_funcionario()
+                    cadastra_funcionario(funcionario)
                 }
+                cont_init = false
             }
         }
         return mensagem
     }
-
     fun verifica_email(email: String, senha: String): String{
         var cont_init: Boolean
         cont_init = true
@@ -57,9 +59,13 @@ class Dados_Pessoa() {
         return mensagem
     }
 
-    fun cadastra_funcionario(){
-
+    fun cadastra_funcionario(funcionario: Pessoa_Array){
+        this.funcionario.add(funcionario)
     }
-
+    fun cadastra_administrador(){
+        var administrador: Pessoa_Array
+        administrador = Pessoa_Array("Julieta Chaves", "paz.julia7@gmail.com", "12345")
+        this.administrador.add(administrador)
+    }
 
 }
