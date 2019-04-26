@@ -12,3 +12,4 @@
 /captures
 .externalNativeBuild
 .idea/codeStyles/Project.xml
+app/src/main/java/br/unitins/cinema/MainActivity.kt
