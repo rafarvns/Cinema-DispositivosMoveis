@@ -8,4 +8,5 @@
     <color name="corBotaoPrimario">#4DEAFF</color>
     <color name="corBotaoSecundario">#C42855</color>
     <color name="corBranca">#FFFFFF</color>
+    <color name="corCinza">#808080</color>
 </resources>
