@@ -8,13 +8,16 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:theme="@style/AppTheme">
-
+        <activity android:name=".Perfil">
+        </activity>
+        <activity android:name=".activity_perfil">
+        </activity>
         <activity android:name=".CadastroSessao">
         </activity>
         <activity android:name=".CadastroFilme">
         </activity>
         <activity
-                android:name=".Login"
+                android:name=".Perfil"
                 android:label="@string/title_activity_login"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
