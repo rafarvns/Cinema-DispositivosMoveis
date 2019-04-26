@@ -27,18 +27,17 @@ class MainActivity : Activity() {
 
         recyclerView = findViewById(R.id.recycler_lista_filmes)
         val db = SQLiteHelperDB(this);
-        layoutManager = GridLayoutManager(this, 1)
+        layoutManager = GridLayoutManager(this, 1) as RecyclerView.LayoutManager?
         recyclerView!!.layoutManager = layoutManager
         recyclerView!!.hasFixedSize()
         adapterFilme = AdapterListaFilme(db.getFilmes(), this)
         recyclerView!!.adapter = adapterFilme
 
         btLoginPrincipal.setOnClickListener {
-            startActivity(Intent(this, Login::class.java))
+            startActivity(Intent(this, Perfil::class.java))
         }
 
     }
-
 }
 
 
