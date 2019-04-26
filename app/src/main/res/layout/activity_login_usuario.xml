@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Login">
+        tools:context=".Perfil">
 
     <TextView
             android:text="Cinema"
@@ -21,6 +21,11 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/linearLayout2">
+        <Button
+                android:text="Voltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/bt_voltar_login_usuario"
+                android:layout_weight="1"/>
         <TextView
 
                 android:text="Cinema"
@@ -28,7 +33,7 @@
                 android:textSize="24dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="8dp"
-                android:layout_width="wrap_content"
+                android:layout_width="291dp"
                 android:layout_height="wrap_content" android:id="@+id/textView2" android:layout_weight="1"/>
     </LinearLayout>
     <LinearLayout
