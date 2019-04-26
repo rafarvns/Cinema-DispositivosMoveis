@@ -47,19 +47,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/duracao" android:layout_marginLeft="20dp" android:hint="Em minutos"
+                android:id="@+id/duracao" android:layout_marginLeft="20dp" android:hint="Em minutos (SOMENTE NÚMEROS)"
                 android:layout_marginRight="20dp"/>
-        <TextView
-                android:text="Classificação Etária"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView5" android:layout_marginLeft="15dp"
-                android:layout_marginTop="17dp" android:textStyle="bold"/>
-        <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/editText5" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
         <TextView
                 android:text="Gênero"
                 android:layout_width="match_parent"
