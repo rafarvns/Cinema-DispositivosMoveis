@@ -20,7 +20,7 @@
             <Button
                     android:text="Login"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp" android:id="@+id/button7"
+                    android:layout_height="0dp" android:id="@+id/btLoginPrincipal"
                     android:backgroundTint="@color/corPadraoEscura"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
                     android:layout_marginBottom="4dp" app:layout_constraintBottom_toBottomOf="parent"

@@ -12,8 +12,8 @@
     <LinearLayout
             android:background="@color/corPadrao"
             android:orientation="horizontal"
-            android:layout_width="389dp"
-            android:layout_height="52dp"
+            android:layout_width="405dp"
+            android:layout_height="53dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/linearLayout2">

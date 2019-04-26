@@ -1,7 +1,9 @@
 package br.unitins.cinema
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+
 import br.unitins.cinema.model.Dados_Pessoa
 import kotlinx.android.synthetic.main.activity_cadastro_usuario.*
 
@@ -10,7 +12,10 @@ class CadastroUsuario : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_usuario)
-
+        bt_Voltar_Cadastro.setOnClickListener{
+            val intent = Intent (this, R.layout.activity_login_usuario:: class.java)
+            startActivity (intent)
+        }
 
         var nome: String
         var email: String
@@ -25,13 +30,15 @@ class CadastroUsuario : Activity() {
 
         var Funcionario: Dados_Pessoa
         Funcionario = Dados_Pessoa()
-//        Funcionario.adiciona_administrador()
+        Funcionario.cadastra_administrador()
 
         bt_cadastrar.setOnClickListener(){
+            //verifica se o usuário existe por meio do email inserido
             mensagem = Funcionario.verifica_email(nome, email, senha, confirma_senha)
         }
-        if (mensagem.equals(" ")){
-            print(mensagem)
+        if (mensagem.equals("sucesso")){
+
+            txt_msg.setText("Usuário inserido com sucesso!")
         }else{
             txt_msg.setText(mensagem)
         }
