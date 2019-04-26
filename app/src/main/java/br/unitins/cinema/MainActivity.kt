@@ -34,7 +34,7 @@ class MainActivity : Activity() {
         recyclerView!!.adapter = adapterFilme
 
         btLoginPrincipal.setOnClickListener {
-            startActivity(Intent(this, Login::class.java))
+            startActivity(Intent(this, CadastroFilme::class.java))
         }
 
     }
