@@ -3,6 +3,7 @@ package br.unitins.cinema
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import br.unitins.cinema.model.Filme
@@ -14,7 +15,8 @@ import kotlin.collections.ArrayList
 
 class CadastroFilme : Activity() {
 
-    private var titulo: EditText? = null
+
+    private var titulo : EditText? = null
     //    private var duracao : EditText? = null
 //    private var classEtaria : EditText? = null
     private var sinopse: EditText? = null
@@ -35,6 +37,8 @@ class CadastroFilme : Activity() {
             sinopse!!.text.toString(),
             Programacao(Date(), Date(), ArrayList<Horario>())
         );
+        Log.i("ASDF", titulo!!.text.toString())
+
 
         cadastrar!!.setOnClickListener {
             val db = SQLiteHelperDB(this)
@@ -44,6 +48,4 @@ class CadastroFilme : Activity() {
 
 
     }
-
-
 }
