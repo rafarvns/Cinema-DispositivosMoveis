@@ -49,6 +49,8 @@ class MainActivity : Activity() {
         var filme = Filme(
             0,
             "Filme Teste",
+            120,
+            "Aventura",
             "img.png",
             "Apenas um teste mesmo",
             Programacao(Date(r.nextLong(999997654321)), Date(Math.random().toLong()), mock_list_horarios)
@@ -58,6 +60,8 @@ class MainActivity : Activity() {
         filme = Filme(
             0,
             "Filme Teste 2",
+            120,
+            "Aventura",
             "img.png",
             "Apenas um teste mesmo 2",
             Programacao(Date(r.nextLong(99999997654321)), Date(Math.random().toLong()), mock_list_horarios)
@@ -67,6 +71,8 @@ class MainActivity : Activity() {
         filme = Filme(
             0,
             "Filme Teste 3",
+            120,
+            "Aventura",
             "img.png",
             "Apenas um teste mesmo 3",
             Programacao(Date(Math.random().toLong()), Date(Math.random().toLong()), mock_list_horarios)
@@ -76,6 +82,8 @@ class MainActivity : Activity() {
         filme = Filme(
             0,
             "Filme Teste 4",
+            120,
+            "Aventura",
             "img.png",
             "Apenas um teste mesmo 4",
             Programacao(Date(Math.random().toLong()), Date(Math.random().toLong()), mock_list_horarios)
@@ -85,6 +93,8 @@ class MainActivity : Activity() {
         filme = Filme(
             0,
             "Filme Teste 5",
+            120,
+            "Aventura",
             "img.png",
             "Apenas um teste mesmo 5",
             Programacao(Date(Math.random().toLong()), Date(Math.random().toLong()), mock_list_horarios)
@@ -94,6 +104,8 @@ class MainActivity : Activity() {
         filme = Filme(
             0,
             "Filme Teste 6",
+            120,
+            "Aventura",
             "img.png",
             "Apenas um teste mesmo 6",
             Programacao(Date(Math.random().toLong()), Date(Math.random().toLong()), mock_list_horarios)

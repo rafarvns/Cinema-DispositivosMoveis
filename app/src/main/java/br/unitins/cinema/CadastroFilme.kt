@@ -15,8 +15,9 @@ import kotlin.collections.ArrayList
 class CadastroFilme : Activity() {
 
     private var titulo: EditText? = null
-    //    private var duracao : EditText? = null
-//    private var classEtaria : EditText? = null
+    private var duracao: EditText? = null
+    private var genero: EditText? = null
+    //    private var classEtaria : EditText? = null
     private var sinopse: EditText? = null
     private var cadastrar: Button? = null
 
@@ -25,18 +26,23 @@ class CadastroFilme : Activity() {
         setContentView(R.layout.activity_cadastro_filme)
 
         titulo = findViewById(R.id.titulo)
+        duracao = findViewById(R.id.duracao)
+        genero = findViewById(R.id.genero)
         sinopse = findViewById(R.id.sinopse)
         cadastrar = findViewById(R.id.btCadFilme)
 
-        val filme = Filme(
-            1,
-            titulo!!.text.toString(),
-            "",
-            sinopse!!.text.toString(),
-            Programacao(Date(), Date(), ArrayList<Horario>())
-        );
+
 
         cadastrar!!.setOnClickListener {
+            val filme = Filme(
+                1,
+                titulo!!.text.toString(),
+                duracao!!.text.toString().toInt(),
+                genero!!.text.toString(),
+                "",
+                sinopse!!.text.toString(),
+                Programacao(Date(), Date(), ArrayList<Horario>())
+            );
             val db = SQLiteHelperDB(this)
             db.adicionaFilme(filme)
             startActivity(Intent(this, MainActivity::class.java))
