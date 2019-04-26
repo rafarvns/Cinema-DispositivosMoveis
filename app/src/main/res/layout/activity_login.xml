@@ -73,7 +73,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:background="@color/corCinza"
+                    android:backgroundTint="@color/corCinza"
                     android:textColor="@color/corBranca" android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/linearLayout7" tools:ignore="NotSibling"/>
             <Button
@@ -83,7 +83,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/linearLayout7"
-                    android:background="@color/corPadraoEscura"
+                    android:backgroundTint="@color/corPadraoEscura"
                     android:textColor="@color/corBranca" android:textStyle="bold"
                     tools:ignore="NotSibling"/>
         </android.support.constraint.ConstraintLayout>

@@ -82,7 +82,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:background="@color/corCinza"
+                    android:backgroundTint="@color/corCinza"
                     android:textColor="@color/corBranca" android:textStyle="bold" android:layout_marginStart="8dp"
                     app:layout_constraintEnd_toStartOf="@+id/linearLayout7" android:layout_marginBottom="8dp"/>
             <Button
@@ -92,7 +92,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/linearLayout7"
-                    android:background="@color/corPadraoEscura"
+                    android:backgroundTint="@color/corPadraoEscura"
                     android:textColor="@color/corBranca" android:textStyle="bold" android:layout_marginRight="8dp"
                     android:layout_marginBottom="8dp"/>
         </android.support.constraint.ConstraintLayout>
