@@ -39,7 +39,7 @@
         <TextView
                 android:text="Quantidade de poltronas"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content" android:id="@+id/Senha" android:layout_marginLeft="15dp"
                 android:layout_marginTop="17dp" android:textStyle="bold"/>
         <EditText
                 android:layout_width="match_parent"
@@ -54,25 +54,27 @@
 
             <Button
                     android:text="Cancelar"
-                    android:layout_width="0dp"
+                    android:layout_width="150dp"
                     android:layout_height="70dp" android:id="@+id/btcancela"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:background="@color/corPadraoEscura"
+                    android:background="@color/corCinza"
                     android:textColor="@color/corBranca" android:textStyle="bold"
                     app:layout_constraintHorizontal_bias="0.0" android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/linearLayout4"/>
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/linearLayout4"
+                    android:layout_marginBottom="8dp"/>
             <Button
                     android:text="Cadastrar"
-                    android:layout_width="0dp"
+                    android:layout_width="150dp"
                     android:layout_height="70dp" android:id="@+id/btcadSala"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/linearLayout5"
                     android:background="@color/corPadraoEscura"
                     android:textColor="@color/corBranca" android:textStyle="bold"
-                    app:layout_constraintHorizontal_bias="1.0" android:layout_marginEnd="8dp"/>
+                    app:layout_constraintHorizontal_bias="1.0" android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"/>
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 

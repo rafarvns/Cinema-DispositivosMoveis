@@ -47,7 +47,7 @@
         <TextView
                 android:text="E-mail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content" android:id="@+id/Senha" android:layout_marginLeft="15dp"
                 android:layout_marginTop="17dp" android:textStyle="bold"/>
         <EditText
                 android:layout_width="match_parent"

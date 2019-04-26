@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".CadastroFilme">
+        tools:context=".CadastroFilme" android:id="@+id/linearLayout7">
 
     <LinearLayout
             android:orientation="horizontal"
@@ -24,7 +24,7 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_weight=".1">
+            android:layout_height="match_parent" android:layout_weight=".1" android:id="@+id/linearLayout6">
         <TextView
                 android:text="Título"
                 android:layout_width="match_parent"
@@ -40,7 +40,7 @@
         <TextView
                 android:text="Duração"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content" android:id="@+id/Senha" android:layout_marginLeft="15dp"
                 android:layout_marginTop="17dp" android:textStyle="bold"/>
         <EditText
                 android:layout_width="match_parent"
@@ -77,13 +77,25 @@
                 android:layout_height="match_parent">
 
             <Button
+                    android:text="Cancelar"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp" android:id="@+id/bt_voltar_login_usuario"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@color/corCinza"
+                    android:textColor="@color/corBranca" android:textStyle="bold" android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout7" android:layout_marginBottom="8dp"/>
+            <Button
                     android:text="Cadastrar"
-                    android:layout_width="0dp"
+                    android:layout_width="150dp"
                     android:layout_height="70dp" android:id="@+id/btCadFilme"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" android:background="@color/corPadraoEscura"
-                    android:textColor="@color/corBranca" android:textStyle="bold"/>
+                    app:layout_constraintStart_toStartOf="@+id/linearLayout7"
+                    android:background="@color/corPadraoEscura"
+                    android:textColor="@color/corBranca" android:textStyle="bold" android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"/>
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 </LinearLayout>
