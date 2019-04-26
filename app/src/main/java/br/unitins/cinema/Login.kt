@@ -1,20 +1,20 @@
 package br.unitins.cinema
 
-import android.app.Activity
 import android.content.Intent
+import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import br.unitins.cinema.model.Dados_Pessoa
-import kotlinx.android.synthetic.main.activity_login_usuario.*
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_perfil.*
 
+class Login : AppCompatActivity() {
 
-class Login: Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_usuario)
+        setContentView(R.layout.activity_login)
         check_administrador.isChecked = false
+
         var dados_Pessoa: Dados_Pessoa
         dados_Pessoa = Dados_Pessoa()
         var email: String
@@ -59,5 +59,6 @@ class Login: Activity() {
         bt_voltar_login_usuario.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+
     }
 }
