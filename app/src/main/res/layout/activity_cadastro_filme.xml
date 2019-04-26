@@ -72,29 +72,25 @@
                 android:ems="10"
                 android:id="@+id/sinopse" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
         <android.support.constraint.ConstraintLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-            <Button
-                    android:text="Cancelar"
-                    android:layout_width="150dp"
-                    android:layout_height="70dp" android:id="@+id/bt_voltar_login_usuario"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:backgroundTint="@color/corCinza"
-                    android:textColor="@color/corBranca" android:textStyle="bold" android:layout_marginStart="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/linearLayout7" android:layout_marginBottom="8dp"/>
-            <Button
-                    android:text="Cadastrar"
-                    android:layout_width="150dp"
-                    android:layout_height="70dp" android:id="@+id/btCadFilme"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/linearLayout7"
-                    android:backgroundTint="@color/corPadraoEscura"
-                    android:textColor="@color/corBranca" android:textStyle="bold" android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                <Button
+                        android:text="Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/bt_Cancelar_Cadastro"
+                        android:layout_weight="1" tools:text="cancel"/>
+                <Button
+                        android:text="Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/btCadFilme" android:layout_weight="1"
+                        tools:text="cadastrar"/>
+            </LinearLayout>
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 </LinearLayout>

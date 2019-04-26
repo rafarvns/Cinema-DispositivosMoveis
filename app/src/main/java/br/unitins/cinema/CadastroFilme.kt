@@ -30,6 +30,11 @@ class CadastroFilme : Activity() {
         genero = findViewById(R.id.genero)
         sinopse = findViewById(R.id.sinopse)
         cadastrar = findViewById(R.id.btCadFilme)
+        var cancelar = findViewById<Button>(R.id.bt_Cancelar_Cadastro)
+
+        cancelar.setOnClickListener{
+            finish()
+        }
 
 
 
@@ -50,6 +55,8 @@ class CadastroFilme : Activity() {
 
 
     }
+
+
 
 
 }
