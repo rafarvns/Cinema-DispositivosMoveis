@@ -27,8 +27,6 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
         recyclerView = findViewById(R.id.recycler_lista_filmes)
 
         val r = Random(Math.random().toInt());
@@ -76,8 +74,7 @@ class MainActivity : Activity() {
         recyclerView!!.adapter = adapterFilme
 
         btLoginPrincipal.setOnClickListener {
-            val intent: Intent = Intent(this, R.layout.activity_login_usuario::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Login::class.java))
         }
 
     }
