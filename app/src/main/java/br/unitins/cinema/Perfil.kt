@@ -3,8 +3,6 @@ package br.unitins.cinema
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-
-import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_perfil.*
 
 class Perfil : Activity() {
@@ -16,6 +14,7 @@ class Perfil : Activity() {
         bt_sair.setOnClickListener {
             finish()
         }
+
         bt_cadastrar_usuario_perfil.setOnClickListener {
             startActivity(Intent(this, CadastroUsuario::class.java))
         }

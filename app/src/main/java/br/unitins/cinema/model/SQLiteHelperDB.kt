@@ -15,6 +15,39 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
         this.database = this.writableDatabase
     }
 
+    fun cadastraUsuario(usuario: Usuario) {
+
+        val insert_usuario = "INSERT INTO usuario (nome, senha, email) VALUES ('" +
+                usuario.nome + "', '" +
+                usuario.senha + "', '" +
+                usuario.email + "');"
+
+        return this.database!!.execSQL(insert_usuario)
+
+    }
+
+    fun getUsuario(email: String, senha: String): Usuario{
+
+        val select_usuario = "SELECT * FROM usuario WHERE email = '" + email + "' and senha = '" + senha +"';"
+
+        val cursor = this.database!!.rawQuery(select_usuario, null);
+
+        if(cursor.count > 0){
+            cursor.moveToFirst();
+
+            return Usuario(
+                cursor.getInt(cursor.getColumnIndex("id")),
+                cursor.getString(cursor.getColumnIndex("nome")),
+                cursor.getString(cursor.getColumnIndex("email")),
+                cursor.getString(cursor.getColumnIndex("senha"))
+            )
+
+        }
+
+        return Usuario(0, "null", "", "");
+
+    }
+
     fun adicionaFilme(filme: Filme) {
 
         val insert_filme = "INSERT INTO filme (titulo, sinopse, duracao, genero, imagem, dtEstreia, dtFim) values ('" +
@@ -113,6 +146,14 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
                     "horario INTEGER, id_filme INTEGER NOT NULL," +
                     " FOREIGN KEY(id_filme) REFERENCES filme(id));"
         )
+
+        db.execSQL(
+            "CREATE TABLE IF NOT EXISTS usuario (id INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                    "nome TEXT, email TEXT, senha TEXT" +
+                    ");"
+        )
+
+        db.execSQL("INSERT INTO usuario (email, senha, nome) VALUES ('admin', 'admin', 'admin');")
 
     }
 

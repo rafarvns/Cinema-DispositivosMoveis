@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/txt_nome" android:hint="Nome Completo"
+                android:id="@+id/txt_nome_cad" android:hint="Nome Completo"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
         <TextView
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/txt_email"
+                android:id="@+id/txt_email_cad"
                 android:hint="usuario@hotmail.com"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
-                android:id="@+id/txt_senha"
+                android:id="@+id/txt_senha_cad"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
         <TextView
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
-                android:id="@+id/txt_confirm_senha"
+                android:id="@+id/txt_confirm_senha_cad"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
 

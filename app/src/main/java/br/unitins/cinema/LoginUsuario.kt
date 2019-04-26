@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import br.unitins.cinema.model.SQLiteHelperDB
 
 class LoginUsuario : Activity() {
 
@@ -26,7 +27,10 @@ class LoginUsuario : Activity() {
                 email = edt_email.text.toString()
                 senha = edt_senha.text.toString()
 
-                if(email.equals("admin") && senha.equals("admin")){
+                val db = SQLiteHelperDB(this)
+                val usuario = db.getUsuario(email, senha)
+
+                if(usuario.id != 0){
                     Toast.makeText(this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, Perfil::class.java))
                     finish()

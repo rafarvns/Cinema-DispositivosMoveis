@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".CadastroSala">
         </activity>
+        <activity android:name=".CadastroUsuario">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
