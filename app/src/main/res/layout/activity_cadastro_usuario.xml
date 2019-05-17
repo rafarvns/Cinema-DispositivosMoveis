@@ -96,12 +96,14 @@
                         android:text="CANCELAR"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" android:id="@+id/bt_Cancelar_Cadastro"
-                        android:background="@color/corCinza" android:layout_weight="1" tools:text="CANCELAR"/>
+                        android:background="@color/corCinza" android:layout_weight="1" tools:text="CANCELAR"
+                        android:textColor="#FFFFFF" android:textStyle="bold"/>
                 <Button
                         android:text="CADASTRAR"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" android:id="@+id/bt_cadastrar" android:layout_weight="1"
-                        android:background="@color/corPadraoEscura" tools:text="CADASTRAR"/>
+                        android:background="@color/corPadraoEscura" tools:text="CADASTRAR"
+                        android:textColor="#FFFFFF" android:textStyle="bold"/>
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
