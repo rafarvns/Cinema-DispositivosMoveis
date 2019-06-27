@@ -1,10 +1,11 @@
 package br.unitins.cinema
 
+import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 
-class CadastroSessao : AppCompatActivity() {
+class CadastroSessao : Activity() {
 
     private var edtcadSessaoSala: EditText? = null
     private var edtcadSessaoFilme: EditText? = null

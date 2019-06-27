@@ -18,7 +18,7 @@
         <TextView
                 android:text="Cadastro de Usuário"
                 android:layout_width="362dp"
-                android:layout_height="wrap_content" android:id="@+id/textView" android:layout_weight="1"
+                android:layout_height="wrap_content" android:id="@+id/txt_nome_view" android:layout_weight="1"
                 android:layout_marginLeft="15dp" android:textSize="24sp" android:textColor="#fff"
                 tools:text="Cadastro de Usuário" android:textStyle="bold"/>
     </LinearLayout>
