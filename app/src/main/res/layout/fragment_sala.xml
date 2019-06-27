@@ -6,9 +6,15 @@
              tools:context=".fragments.SalaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+            android:orientation="vertical"
+            android:background="#fff"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/title_activity_salas"/>
+            android:layout_height="match_parent">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/title_activity_salas"/>
+    </LinearLayout>
 
 </FrameLayout>

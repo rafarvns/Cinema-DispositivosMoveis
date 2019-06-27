@@ -6,7 +6,7 @@
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_weight="0">
+            android:layout_height="match_parent">
         <android.support.v7.widget.CardView
                 android:layout_width="312dp"
                 android:layout_height="match_parent">
@@ -17,25 +17,35 @@
                 <TextView
                         android:text="titulo"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/lbl_lista_filme_titulo"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp" android:id="@+id/lbl_lista_sessao_titulo"/>
                 <TextView
-                        android:text="horario"
+                        android:text="sala"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:id="@+id/lbl_lista_sessao_sala"
                         android:layout_marginTop="5dp"/>
-                <TextView
-                        android:text="sinopse"
+                <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_height="wrap_content" android:id="@+id/lbl_lista_filme_sinopse"/>
+                        android:layout_height="wrap_content" android:layout_marginTop="5dp">
+                    <TextView
+                            android:text="data"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/lbl_lista_sessao_data"
+                            android:layout_weight=".1"/>
+                    <TextView
+                            android:text="sinopse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/lbl_lista_sessao_hora"
+                            android:layout_weight=".1"/>
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
                 <ImageView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent" app:srcCompat="@mipmap/ic_launcher_round"
                         android:id="@+id/img_lista_sessao" android:layout_weight="1"/>
             </LinearLayout>

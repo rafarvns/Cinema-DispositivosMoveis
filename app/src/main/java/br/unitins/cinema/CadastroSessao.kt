@@ -4,6 +4,7 @@ import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import kotlinx.android.synthetic.main.activity_cadastro_sessao.*
 
 class CadastroSessao : Activity() {
 
@@ -20,5 +21,10 @@ class CadastroSessao : Activity() {
         edtcadSessaoFilme = findViewById(R.id.edtcadSessaoFilme)
         edtcadSessaoData = findViewById(R.id.edtcadSessaoData)
         edtcadSessaoHora = findViewById(R.id.edtcadSessaoHora)
+
+        btn_cancelar.setOnClickListener {
+            finish()
+        }
     }
+
 }

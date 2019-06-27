@@ -8,8 +8,11 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
+import br.unitins.cinema.fragments.ContaFragment
 import br.unitins.cinema.fragments.FilmeFragment
 import br.unitins.cinema.fragments.SalaFragment
+import br.unitins.cinema.fragments.SessaoFragment
+import br.unitins.cinema.model.Sessao
 import kotlinx.android.synthetic.main.activity_gerencia.*
 
 class Gerencia : FragmentActivity() {
@@ -35,12 +38,12 @@ class Gerencia : FragmentActivity() {
 
         btn_filmes.setOnClickListener {
             txt_nome_view.setText("Filme")
-          //  trocaFragment("Filme")
+            trocaFragment("Filme")
         }
 
         btn_salas.setOnClickListener {
             txt_nome_view.setText("Salas")
-            //  trocaFragment("Salas")
+              trocaFragment("Salas")
         }
 
         btn_sessoes.setOnClickListener{
@@ -66,14 +69,19 @@ class Gerencia : FragmentActivity() {
             this.transaction!!.replace(R.id.fragment_gerencia, sala_fragment)
             this.transaction!!.commit()
         }else if (tela.equals("Sessões")){
-            val sessao_fragment = SalaFragment()
+            val sessao_fragment = SessaoFragment()
             this.transaction = supportFragmentManager.beginTransaction()
             this.transaction!!.replace(R.id.fragment_gerencia, sessao_fragment)
             this.transaction!!.commit()
-        } else {
-            val conta_fragment = SalaFragment()
+        } else if(tela.equals("Conta")){
+            val conta_fragment = ContaFragment()
             this.transaction = supportFragmentManager.beginTransaction()
             this.transaction!!.replace(R.id.fragment_gerencia, conta_fragment)
+            this.transaction!!.commit()
+        } else {
+            val filme_fragment = FilmeFragment()
+            this.transaction = supportFragmentManager.beginTransaction()
+            this.transaction!!.replace(R.id.fragment_gerencia, filme_fragment)
             this.transaction!!.commit()
         }
 

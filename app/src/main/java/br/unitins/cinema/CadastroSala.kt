@@ -33,7 +33,7 @@ class CadastroSala : Activity() {
             Toast.makeText(this, "Preencha o campo da sala", Toast.LENGTH_SHORT)
 
         btn_cancelar.setOnClickListener {
-            startActivity(Intent(this, Gerencia::class.java))
+            finish()
         }
     }
 }

@@ -45,9 +45,9 @@ class AdapterListaFilme(val lst_filme: ArrayList<Filme>, val context: Context) :
         var lbl_sinopse: TextView? = null
 
         init {
-            img = itemView.findViewById(R.id.img_lista_filme)
+            img = itemView.findViewById(R.id.img_lista_sessao)
             lbl_titulo = itemView.findViewById(R.id.lbl_lista_filme_titulo)
-            lbl_horarios = itemView.findViewById(R.id.lbl_lista_filme_horarios)
+            lbl_horarios = itemView.findViewById(R.id.lbl_lista_sessao_sala)
             lbl_sinopse = itemView.findViewById(R.id.lbl_lista_filme_sinopse)
         }
 

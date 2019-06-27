@@ -23,19 +23,19 @@ class LoginUsuario : Activity() {
             var bt_entrar = findViewById<Button>(R.id.bt_entrar)
             bt_entrar.setOnClickListener{
 
-//                email = edt_email.text.toString()
-//                senha = edt_senha.text.toString()
-//
-//                val db = SQLiteHelperDB(this)
-//                val usuario = db.getUsuario(email, senha)
-//
-//                if(usuario.id != 0){
-//                    Toast.makeText(this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show()
+                email = edt_email.text.toString()
+                senha = edt_senha.text.toString()
+
+                val db = SQLiteHelperDB(this)
+                val usuario = db.getUsuario(email, senha)
+
+                if(usuario.id != 0){
+                    Toast.makeText(this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, Gerencia::class.java))
                     finish()
-//                } else {
-//                    Toast.makeText(this, "E-mail ou senha inválidos!", Toast.LENGTH_SHORT).show()
-//                }
+                } else {
+                    Toast.makeText(this, "E-mail ou senha inválidos!", Toast.LENGTH_SHORT).show()
+                }
 
             }
 

@@ -6,9 +6,15 @@
              tools:context=".fragments.SessaoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+            android:orientation="vertical"
+            android:background="#fff"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="sessoes"/>
+            android:layout_height="match_parent">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="sessoes"/>
+    </LinearLayout>
 
 </FrameLayout>
