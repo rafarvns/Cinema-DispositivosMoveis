@@ -29,8 +29,7 @@ class AdapterListaFilme(val lst_filme: ArrayList<Filme>, val context: Context) :
     override fun onBindViewHolder(imageViewHolder: ImageViewHolder, i: Int) {
 
         imageViewHolder.lbl_titulo!!.text = lst_filme[i].titulo
-        imageViewHolder.lbl_horarios!!.text = "Estreia: " + lst_filme[i].programacao.dtEstreia.toString() + " |Horários: " +
-                                                lst_filme[i].programacao.getHorarios()
+        imageViewHolder.lbl_horarios!!.text = "Mock"
         imageViewHolder.lbl_sinopse!!.text = lst_filme[i].sinopse
         imageViewHolder.img!!.setImageResource(R.drawable.vingadores)
 

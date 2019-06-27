@@ -6,14 +6,8 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import br.unitins.cinema.adapters.AdapterListaFilme
-import br.unitins.cinema.model.Filme
-import br.unitins.cinema.model.Horario
-import br.unitins.cinema.model.Programacao
 import br.unitins.cinema.model.SQLiteHelperDB
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.Date
-import kotlin.collections.ArrayList
-import kotlin.random.Random
 
 class MainActivity : Activity() {
 
@@ -26,7 +20,7 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.recycler_lista_filmes)
-        val db = SQLiteHelperDB(this);
+        val db = SQLiteHelperDB(this)
         layoutManager = GridLayoutManager(this, 1)
         recyclerView!!.layoutManager = layoutManager
         recyclerView!!.hasFixedSize()

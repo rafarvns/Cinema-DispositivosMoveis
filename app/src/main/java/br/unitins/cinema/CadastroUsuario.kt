@@ -21,10 +21,11 @@ class CadastroUsuario : Activity() {
             val email = txt_email_cad.text.toString()
             val senha = txt_senha_cad.text.toString()
             val confirmaSenha = txt_confirm_senha_cad.text.toString()
+            val isAdmin = "true"
 
             if(senha.equals(confirmaSenha)){
                 val db = SQLiteHelperDB(this)
-                db.cadastraUsuario(Usuario(0, nome, email, senha))
+                db.cadastraUsuario(Usuario(0, nome, email, senha, isAdmin))
                 Toast.makeText(this, "Cadastro Realizado!", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, Perfil::class.java))
                 finish()
