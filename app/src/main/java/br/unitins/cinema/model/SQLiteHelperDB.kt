@@ -16,111 +16,83 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
     }
 
     fun cadastraUsuario(usuario: Usuario) {
-
-        val insert_usuario = "INSERT INTO usuario (nome, senha, email) VALUES ('" +
+        val insert_usuario = "INSERT INTO usuario (nome, senha, email, admin) VALUES ('" +
                 usuario.nome + "', '" +
                 usuario.senha + "', '" +
-                usuario.email + "');"
-
+                usuario.email + "', '" +
+                usuario.admin + "');"
         return this.database!!.execSQL(insert_usuario)
-
     }
 
     fun getUsuario(email: String, senha: String): Usuario{
-
         val select_usuario = "SELECT * FROM usuario WHERE email = '" + email + "' and senha = '" + senha +"';"
-
-        val cursor = this.database!!.rawQuery(select_usuario, null);
-
+        val cursor = this.database!!.rawQuery(select_usuario, null)
         if(cursor.count > 0){
-            cursor.moveToFirst();
-
+            cursor.moveToFirst()
             return Usuario(
                 cursor.getInt(cursor.getColumnIndex("id")),
                 cursor.getString(cursor.getColumnIndex("nome")),
                 cursor.getString(cursor.getColumnIndex("email")),
-                cursor.getString(cursor.getColumnIndex("senha"))
+                cursor.getString(cursor.getColumnIndex("senha")),
+                cursor.getString(cursor.getColumnIndex("admin"))
             )
-
         }
-
-        return Usuario(0, "null", "", "");
-
+        return Usuario(0, "null", "", "", "")
     }
 
     fun adicionaFilme(filme: Filme) {
-
-        val insert_filme = "INSERT INTO filme (titulo, sinopse, duracao, genero, imagem, dtEstreia, dtFim) values ('" +
-                filme.titulo + "', '" +
-                filme.sinopse + "', '" +
-                filme.duracao + "', '" +
-                filme.genero + "', '" +
-                filme.imagem + "', " +
-                filme.programacao.dtEstreia.time + ", " +
-                filme.programacao.dtFim.time + ");"
-
+        val insert_filme = "INSERT INTO filme (titulo, sinopse, duracao, genero, imagem) values ('" +
+                                        filme.titulo + "', '" +
+                                        filme.sinopse + "', '" +
+                                        filme.duracao + "', '" +
+                                        filme.genero + "', '" +
+                                        filme.imagem + "');"
         this.database!!.execSQL(insert_filme)
-
-        val id_cursor = this.database!!.rawQuery("SELECT id FROM filme ORDER BY id DESC LIMIT 1;", null)
-
-        var id = -1
-        if (id_cursor.moveToFirst()) {
-            id = id_cursor.getInt(id_cursor.getColumnIndex("id"))
-        }
-
-        if (id != -1) {
-            val finalId = id
-            filme.programacao.lstHorarios.forEach { horario ->
-                this.database!!.execSQL(
-                    "INSERT INTO horarios_filme(horario, id_filme) VALUES(" +
-                            horario.hrInicio.time + ", " + finalId + ");"
-                )
-            }
-        }
-
     }
 
     fun getFilmes(): ArrayList<Filme> {
 
-        val mock_lista_filmes = ArrayList<Filme>();
+        val mock_lista_filmes = ArrayList<Filme>()
 
-        val cursor = this.database!!.rawQuery("SELECT * FROM filme;", null);
+        val cursor = this.database!!.rawQuery("SELECT * FROM filme;", null)
 
         if (cursor.moveToFirst()) {
             do {
                 val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"))
-                val imagem = cursor.getString(cursor.getColumnIndex("imagem"))
+                val imagem = cursor.getBlob(cursor.getColumnIndex("imagem"))
                 val sinopse = cursor.getString(cursor.getColumnIndex("sinopse"))
                 val titulo = cursor.getString(cursor.getColumnIndex("titulo"))
                 val duracao = cursor.getInt(cursor.getColumnIndex("duracao"))
                 val genero = cursor.getString(cursor.getColumnIndex("genero"))
-                val dtEstreia = cursor.getLong(cursor.getColumnIndex("dtEstreia"))
-                val dtFim = cursor.getLong(cursor.getColumnIndex("dtFim"))
 
-                val mock_lista_horarios = ArrayList<Horario>();
+                val mock_lista_sessao = ArrayList<Sessao>()
 
-                val cursor_h =
-                    this.database!!.rawQuery("SELECT * FROM horarios_filme WHERE id_filme = " + id + ";", null);
-                if (cursor_h.moveToFirst()) {
-                    while (cursor_h.moveToNext()) {
+                val cursor_s = this.database!!
+                                    .rawQuery("SELECT * FROM sessao, sala WHERE id_filme = " + id + " and id_sala = sala.id;", null)
+                if (cursor_s.moveToFirst()) {
+                    while (cursor_s.moveToNext()) {
 
-                        val horario = Horario(Date(cursor_h.getLong(cursor_h.getColumnIndex("horario"))));
-                        mock_lista_horarios.add(horario);
+                        val idSessao = cursor_s.getInt(cursor_s.getColumnIndex("id"))
+                        val dia = cursor_s.getInt(cursor_s.getColumnIndex("dia"))
+                        val hora = cursor_s.getInt(cursor_s.getColumnIndex("hora"))
+                        val idSala = cursor_s.getInt(cursor_s.getColumnIndex("sala.id"))
+                        val poltronas = cursor_s.getInt(cursor_s.getColumnIndex("poltronas"))
+                        val sala = Sala(idSala, poltronas)
+                        val sessao = Sessao(idSessao, dia, hora, sala)
 
+                        mock_lista_sessao.add(sessao)
                     }
                 }
 
-                val programacao = Programacao(Date(dtEstreia), Date(dtFim), mock_lista_horarios);
+                val filme = Filme(id, titulo, duracao, genero, imagem, sinopse, mock_lista_sessao)
 
-                val filme = Filme(id, titulo, duracao, genero, imagem, sinopse, programacao);
+                mock_lista_filmes.add(filme)
 
-                mock_lista_filmes.add(filme);
-
-            } while (cursor.moveToNext());
+            } while (cursor.moveToNext())
 
         }
 
-        return mock_lista_filmes;
+        return mock_lista_filmes
 
     }
 
@@ -132,29 +104,30 @@ class SQLiteHelperDB(context: Context) : SQLiteOpenHelper(context, NOME_BANCO, n
 
     override fun onCreate(db: SQLiteDatabase) {
 
-        //cria tabela filme
         db.execSQL(
             "CREATE TABLE IF NOT EXISTS filme (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "titulo TEXT, duracao INTEGER, genero TEXT," +
-                    " sinopse TEXT, imagem TEXT," +
-                    " dtEstreia INTEGER, dtFim INTEGER);"
+                    " sinopse TEXT, imagem BLOB);"
         )
 
-        //cria tabela horarios dos filmes
         db.execSQL(
-            "CREATE TABLE IF NOT EXISTS horarios_filme(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "horario INTEGER, id_filme INTEGER NOT NULL," +
-                    " FOREIGN KEY(id_filme) REFERENCES filme(id));"
+            "CREATE TABLE IF NOT EXISTS sessao (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "dia INTEGER, hora INTEGER, id_filme INTEGER, id_sala INTEGER, " +
+                    "FOREIGN KEY(id_filme) REFERENCES filme(id), FOREIGN KEY(id_sala) REFERENCES sala(id));"
+        )
+
+        db.execSQL(
+            "CREATE TABLE IF NOT EXISTS sala (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "poltronas INTEGER);"
         )
 
         db.execSQL(
             "CREATE TABLE IF NOT EXISTS usuario (id INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                    "nome TEXT, email TEXT, senha TEXT" +
-                    ");"
+                    "nome TEXT, email TEXT, senha TEXT, admin TEXT);"
         )
 
-        db.execSQL("INSERT INTO usuario (email, senha, nome) VALUES ('admin', 'admin', 'admin');")
-
+        db.execSQL("INSERT INTO usuario (email, senha, nome, admin) VALUES ('admin', 'admin', 'admin', 'true');")
+        db.execSQL("INSERT INTO usuario (email, senha, nome, admin) VALUES ('', '', '', 'true');")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

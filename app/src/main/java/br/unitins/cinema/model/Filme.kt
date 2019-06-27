@@ -1,8 +1,9 @@
 package br.unitins.cinema.model
 
-import java.time.Duration
-
-class Filme constructor(var id: Int, var titulo: String, var duracao: Int, var genero: String, var imagem: String,
-                            var sinopse: String, var programacao: Programacao) {
-
-}
+class Filme constructor(var id: Int,
+                        var titulo: String,
+                        var duracao: Int,
+                        var genero: String,
+                        var imagem: ByteArray,
+                        var sinopse: String,
+                        var lst_sessao: List<Sessao>)
