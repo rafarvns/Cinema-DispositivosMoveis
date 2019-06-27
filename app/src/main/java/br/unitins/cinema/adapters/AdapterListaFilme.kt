@@ -14,8 +14,6 @@ import java.util.ArrayList
 
 class AdapterListaFilme(val lst_filme: ArrayList<Filme>, val context: Context) : RecyclerView.Adapter<AdapterListaFilme.ImageViewHolder>() {
 
-
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ImageViewHolder {
 
         val view = LayoutInflater.from(context).inflate(R.layout.panel_lista_filme, viewGroup, false)
@@ -41,10 +39,10 @@ class AdapterListaFilme(val lst_filme: ArrayList<Filme>, val context: Context) :
 
     class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        public var img: ImageView? = null
-        public var lbl_titulo: TextView? = null
-        public var lbl_horarios: TextView? = null
-        public var lbl_sinopse: TextView? = null
+        var img: ImageView? = null
+        var lbl_titulo: TextView? = null
+        var lbl_horarios: TextView? = null
+        var lbl_sinopse: TextView? = null
 
         init {
             img = itemView.findViewById(R.id.img_lista_filme)
