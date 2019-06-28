@@ -3,57 +3,60 @@
               xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content" android:id="@+id/pnl_lista_filme">
+
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_weight="0">
+            android:layout_height="140dp">
         <android.support.v7.widget.CardView
-                android:layout_width="312dp"
-                android:layout_height="match_parent">
-            <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="236dp"
-                    android:layout_height="match_parent" android:layout_marginLeft="75dp">
-                <TextView
-                        android:text="titulo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/lbl_lista_filme_titulo"
-                        android:layout_marginTop="15dp"/>
-                <TextView
-                        android:text="horario"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/lbl_lista_sessao_sala"
-                        android:layout_marginTop="5dp"/>
-                <TextView
-                        android:text="sinopse"
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_height="wrap_content" android:id="@+id/lbl_lista_filme_sinopse"/>
-            </LinearLayout>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" app:cardCornerRadius="5dp" android:layout_margin="6dp"
+                app:cardElevation="4dp">
             <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                <ImageView
+                <android.support.v7.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="match_parent" app:cardCornerRadius="5dp">
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" app:srcCompat="@mipmap/ic_launcher_round"
+                                android:id="@+id/img_lista_filme"/>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" app:srcCompat="@mipmap/ic_launcher_round"
-                        android:id="@+id/img_lista_sessao" android:layout_weight="1"/>
+                        android:layout_height="match_parent">
+                    <TextView
+                            android:text="Titulo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:id="@+id/lbl_lista_filme_titulo"
+                            android:layout_weight=".1" android:textAlignment="center" android:textStyle="bold"
+                            android:layout_marginLeft="4dp"
+                            android:textColor="@android:color/background_dark" android:layout_margin="4dp"/>
+                    <TextView
+                            android:text="Horários:"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight=".3" android:textColor="@android:color/background_dark"
+                            android:layout_margin="4dp" android:id="@+id/lbl_lista_filme_horarios"/>
+                    <TextView
+                            android:text="Sinopse:"
+                            android:layout_width="match_parent"
+                            android:layout_marginLeft="4dp"
+                            android:layout_height="wrap_content" android:id="@+id/lbl_lista_filme_sinopse"
+                            android:layout_weight=".6" android:textColor="@android:color/background_dark"
+                            android:layout_margin="4dp"/>
+                </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="93dp"
-                android:layout_height="match_parent" android:layout_marginRight="250dp">
-            <Button
-                    android:text="Editar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/btn_lista_sessao_editar"/>
-            <Button
-                    android:text="Deletar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/btn_lista_sessao_deletar"
-                    android:backgroundTint="@color/colorPrimaryDark" android:drawableTint="@color/corBranca"
-            />
-        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

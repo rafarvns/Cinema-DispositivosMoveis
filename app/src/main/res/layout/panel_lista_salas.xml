@@ -3,34 +3,71 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="80dp">
-    <LinearLayout
-            android:orientation="horizontal"
+              android:layout_height="106dp">
+    <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="80dp">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" android:id="@+id/lbl_lista_salas_id" android:layout_weight="1"
-                tools:text="Salas"/>
-        <TextView
-                android:text="poltronas"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" android:id="@+id/lbl_lista_salas_poltronas"
-                android:layout_weight="1"/>
+            android:layout_height="match_parent" app:cardCornerRadius="5dp" android:layout_margin="6dp"
+            app:cardElevation="4dp">
         <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-            <Button
-                    android:text="Editar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp" android:id="@+id/btn_lista_salas_editar"/>
-            <Button
-                    android:text="Deletar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp" android:id="@+id/btn_lista_salas_deletar2"
-                    android:backgroundTint="@color/colorPrimaryDark" android:drawableTint="@color/corBranca"
-            />
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+            <TextView
+                    android:text="Sala"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView9" android:layout_weight="1"
+                    android:textStyle="bold"/>
+            <TextView
+                    android:text="Nº Poltronas"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView5" android:layout_weight="1"/>
+            <TextView
+                    android:text=""
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView" android:layout_weight="1"/>
         </LinearLayout>
-    </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="86dp">
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/lbl_lista_salas_numero" android:layout_weight="1"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    tools:text="Salas" android:textSize="40sp"/>
+            <TextView
+                    android:text="poltronas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/lbl_lista_salas_poltronas"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:textColor="#000"
+                    android:layout_weight="1"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="match_parent" android:layout_weight="1">
+                <Button
+                        android:text="Editar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp" android:id="@+id/btn_lista_salas_editar"/>
+                <Button
+                        android:text="Deletar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp" android:id="@+id/btn_lista_salas_deletar2"
+                        android:textColor="#fff"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

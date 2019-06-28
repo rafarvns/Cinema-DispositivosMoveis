@@ -27,7 +27,6 @@ class CadastroUsuario : Activity() {
                 val db = SQLiteHelperDB(this)
                 db.cadastraUsuario(Usuario(0, nome, email, senha, isAdmin))
                 Toast.makeText(this, "Cadastro Realizado!", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, Gerencia::class.java))
                 finish()
             } else {
                 Toast.makeText(this, "As senhas não conferem!", Toast.LENGTH_SHORT).show()

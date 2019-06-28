@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
+              android:layout_margin="10dp"
               android:layout_height="wrap_content">
 
     <LinearLayout
@@ -11,39 +12,47 @@
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
+                android:gravity="center"
                 android:background="@color/corPadraoEscura"
-                android:layout_height="40dp">
+                android:layout_height="40dp" android:layout_weight="1">
             <TextView
-                    android:text="TextView"
+                    android:text="Confirmação"
+                    android:textColor="#fff"
+                    android:padding="4dp"
+                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_weight="1"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
-                android:background="@color/corCinza"
+                android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" android:layout_weight="1">
             <TextView
-                    android:text="TextView"
+                    android:text=""
                     android:layout_margin="6dp"
                     android:layout_marginTop="6dp"
                     android:layout_marginBottom="6dp"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/textView2"/>
+                    android:layout_height="wrap_content" android:id="@+id/txt_confirma_mensagem"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" android:layout_weight="1">
             <Button
-                    android:text="Button"
+                    android:text="Cancelar"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button4" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:id="@+id/btn_confirmacao_cancela"
+                    android:layout_weight="1"/>
             <Button
-                    android:text="Button"
+                    android:text="Confirmar"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:textColor="#fff"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button3" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:id="@+id/btn_confirmacao_confirma"
+                    android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -32,7 +32,7 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:ems="10"
                 android:id="@+id/edtnSala" android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
@@ -44,7 +44,7 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:ems="10"
                 android:id="@+id/edtqPoltrona" android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
@@ -52,23 +52,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <Button
-                    android:text="Cancelar"
-                    android:layout_width="180dp"
-                    android:layout_height="84dp" android:id="@+id/btn_cancelar"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:background="@color/corCinza"
-                    android:textColor="@color/corBranca" android:textStyle="bold"/>
-            <Button
-                    android:text="Cadastrar"
-                    android:layout_width="180dp"
-                    android:layout_height="84dp" android:id="@+id/btcadSala"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:background="@color/corPadraoEscura"
-                    android:textColor="@color/corBranca" android:textStyle="bold"
-                    app:layout_constraintHorizontal_bias="1.0"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                <Button
+                        android:text="CANCELAR"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/bt_Cancelar_cad_sala"
+                        android:background="@color/corCinza" android:layout_weight="1" tools:text="CANCELAR"
+                        android:textColor="@android:color/white" android:textStyle="bold"/>
+                <Button
+                        android:text="CADASTRAR"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/bt_Cadastrar_sala" android:layout_weight="1"
+                        android:background="@color/corPadraoEscura" tools:text="CADASTRAR"
+                        android:textColor="@android:color/white" android:textStyle="bold"/>
+            </LinearLayout>
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 

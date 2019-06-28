@@ -3,28 +3,55 @@ package br.unitins.cinema
 import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.Toast
+import br.unitins.cinema.model.Filme
+import br.unitins.cinema.model.SQLiteHelperDB
+import br.unitins.cinema.model.Sala
+import br.unitins.cinema.model.Sessao
 import kotlinx.android.synthetic.main.activity_cadastro_sessao.*
 
 class CadastroSessao : Activity() {
-
-    private var edtcadSessaoSala: EditText? = null
-    private var edtcadSessaoFilme: EditText? = null
-    private var edtcadSessaoData: EditText? = null
-    private var edtcadSessaoHora: EditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_sessao)
 
-        edtcadSessaoSala = findViewById(R.id.edtcadSessaoSala)
-        edtcadSessaoFilme = findViewById(R.id.edtcadSessaoFilme)
-        edtcadSessaoData = findViewById(R.id.edtcadSessaoData)
-        edtcadSessaoHora = findViewById(R.id.edtcadSessaoHora)
+        val db = SQLiteHelperDB(this)
+        val filmes = db.getFilmes()
+        val salas = db.getSalas()
 
-        btn_cancelar.setOnClickListener {
+        val spnFilmes = ArrayAdapter<Filme>(this, R.layout.support_simple_spinner_dropdown_item, filmes)
+        spnFilmes.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+        spncadSessaoFilme.adapter = spnFilmes
+
+        val spnSalas = ArrayAdapter<Sala>(this, R.layout.support_simple_spinner_dropdown_item, salas)
+        spnSalas.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+        spncadSessaoSala.adapter = spnSalas
+
+        bt_Cadastrar_sessao.setOnClickListener{
+
+            val spnSala =  spncadSessaoSala
+            val spnFilme = spncadSessaoFilme
+            val data = edtcadSessaoData!!.text.toString()
+            val hora = edtcadSessaoHora!!.text.toString()
+            val sala = spnSala.selectedItem as Sala
+            val filme = spnFilme.selectedItem as Filme
+
+            val sessao = Sessao(0, data.toInt(), hora.toInt(), filme, sala)
+            val database = SQLiteHelperDB(this)
+            database.cadastraSessao(sessao)
+
+            Toast.makeText(this, "A sessão foi cadastrada!", Toast.LENGTH_SHORT).show()
             finish()
         }
+
+        bt_Cancelar_cad_sessao.setOnClickListener{
+            finish()
+        }
+
     }
 
 }

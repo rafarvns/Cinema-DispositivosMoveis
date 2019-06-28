@@ -1,18 +1,14 @@
 package br.unitins.cinema
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
-import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
-import br.unitins.cinema.fragments.ContaFragment
+import br.unitins.cinema.fragments.UsuarioFragment
 import br.unitins.cinema.fragments.FilmeFragment
 import br.unitins.cinema.fragments.SalaFragment
 import br.unitins.cinema.fragments.SessaoFragment
-import br.unitins.cinema.model.Sessao
 import kotlinx.android.synthetic.main.activity_gerencia.*
 
 class Gerencia : FragmentActivity() {
@@ -23,16 +19,22 @@ class Gerencia : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gerencia)
 
+        txt_nome_view.setText("Filme")
+        trocaFragment("Filme")
+
         btn_add.setOnClickListener {
             var nome: String
             nome = txt_nome_view.text.toString()
-            System.out.println(nome)
             if (nome.equals("Filme")) {
                 startActivity(Intent(this, CadastroFilme::class.java))
             }else if (nome.equals("Salas")){
                 startActivity(Intent(this, CadastroSala::class.java))
             }else if (nome.equals("Sessões")){
                 startActivity(Intent(this, CadastroSessao::class.java))
+            } else if(nome.equals("Usuários")){
+                startActivity(Intent(this, CadastroUsuario::class.java))
+            } else {
+                startActivity(Intent(this, CadastroFilme::class.java))
             }
         }
 
@@ -51,8 +53,8 @@ class Gerencia : FragmentActivity() {
             trocaFragment("Sessões")
         }
         btn_conta.setOnClickListener{
-            txt_nome_view.setText("Conta")
-            trocaFragment("Conta")
+            txt_nome_view.setText("Usuários")
+            trocaFragment("Usuários")
         }
     }
 
@@ -73,10 +75,10 @@ class Gerencia : FragmentActivity() {
             this.transaction = supportFragmentManager.beginTransaction()
             this.transaction!!.replace(R.id.fragment_gerencia, sessao_fragment)
             this.transaction!!.commit()
-        } else if(tela.equals("Conta")){
-            val conta_fragment = ContaFragment()
+        } else if(tela.equals("Usuários")){
+            val usuario_fragment = UsuarioFragment()
             this.transaction = supportFragmentManager.beginTransaction()
-            this.transaction!!.replace(R.id.fragment_gerencia, conta_fragment)
+            this.transaction!!.replace(R.id.fragment_gerencia, usuario_fragment)
             this.transaction!!.commit()
         } else {
             val filme_fragment = FilmeFragment()
@@ -87,4 +89,9 @@ class Gerencia : FragmentActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        trocaFragment(txt_nome_view.text.toString())
+    }
 }

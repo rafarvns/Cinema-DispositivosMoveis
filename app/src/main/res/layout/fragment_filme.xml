@@ -11,10 +11,9 @@
             android:background="#fff"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <TextView
+        <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Fragment Filme"/>
+                android:layout_height="match_parent" android:id="@+id/recycler_frag_filmes"/>
     </LinearLayout>
 
 </FrameLayout>

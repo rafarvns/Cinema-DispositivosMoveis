@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".CadastroSala">
+        tools:context=".CadastroSessao">
 
     <LinearLayout
             android:orientation="horizontal"
@@ -25,29 +25,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:layout_weight=".1">
         <TextView
-                android:text="Número da sala"
+                android:text="Sala"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_marginLeft="15dp"
                 android:layout_marginTop="17dp" android:textStyle="bold"/>
-        <EditText
+        <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/edtcadSessaoSala" android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginTop="10px"
+                android:layout_marginBottom="20px"
+                android:layout_height="wrap_content" android:id="@+id/spncadSessaoSala"/>
         <TextView
-                android:text="Nome do Filme"
+                android:text="Filme"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/Senha" android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content" android:id="@+id/lbltxtfilme" android:layout_marginLeft="15dp"
                 android:layout_marginTop="17dp" android:textStyle="bold"/>
-        <EditText
+        <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" android:id="@+id/edtcadSessaoFilme"/>
+                android:layout_marginTop="10px"
+                android:layout_marginBottom="20px"
+                android:layout_height="wrap_content" android:id="@+id/spncadSessaoFilme"/>
         <TextView
                 android:text="Data da Exibição"
                 android:layout_width="match_parent"
@@ -56,7 +52,7 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="date"
                 android:ems="10"
                 android:id="@+id/edtcadSessaoData" android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
@@ -68,33 +64,32 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="time"
                 android:ems="10"
                 android:id="@+id/edtcadSessaoHora" android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"/>
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-            <Button
-                    android:text="Cancelar"
-                    android:layout_width="180dp"
-                    android:layout_height="84dp" android:id="@+id/btn_cancelar"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:background="@color/cardview_shadow_start_color"
-                    android:textColor="@color/corBranca" android:textStyle="bold"
-                    app:layout_constraintHorizontal_bias="0.0"/>
-            <Button
-                    android:text="Cadastrar"
-                    android:layout_width="180dp"
-                    android:layout_height="84dp" android:id="@+id/bcadSessao"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" android:background="@color/corPadraoEscura"
-                    android:textColor="@color/corBranca" android:textStyle="bold"
-                    app:layout_constraintHorizontal_bias="1.0"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                <Button
+                        android:text="CANCELAR"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/bt_Cancelar_cad_sessao"
+                        android:background="@color/corCinza" android:layout_weight="1" tools:text="CANCELAR"
+                        android:textColor="@android:color/white" android:textStyle="bold"/>
+                <Button
+                        android:text="CADASTRAR"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/bt_Cadastrar_sessao"
+                        android:layout_weight="1"
+                        android:background="@color/corPadraoEscura" tools:text="CADASTRAR"
+                        android:textColor="@android:color/white" android:textStyle="bold"/>
+            </LinearLayout>
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 

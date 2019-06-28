@@ -6,34 +6,36 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import br.unitins.cinema.model.SQLiteHelperDB
+import br.unitins.cinema.model.Sala
+import kotlinx.android.synthetic.main.activity_cadastro_sala.*
 import kotlinx.android.synthetic.main.activity_cadastro_sessao.*
 
 class CadastroSala : Activity() {
-
-    private var edtnSala: EditText? = null
-    private var edtqPoltrona: EditText? = null
-    private var bcadSala: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_sala)
 
-        edtnSala = findViewById(R.id.edtnSala)
-        edtqPoltrona = findViewById(R.id.edtqPoltrona)
-        bcadSala = findViewById(R.id.btcadSala)
 
-        if (edtnSala!!.text.toString() != "") {
-            if (edtqPoltrona!!.text.toString() != "") {
+        bt_Cadastrar_sala.setOnClickListener{
 
-                bcadSala!!.setOnClickListener { }
+            val numero = edtnSala!!.text.toString()
+            val poltronas = edtqPoltrona!!.text.toString()
 
-            } else
-                Toast.makeText(this, "Preencha o campo da Poltrona", Toast.LENGTH_SHORT)
-        } else
-            Toast.makeText(this, "Preencha o campo da sala", Toast.LENGTH_SHORT)
+            val sala = Sala(0, numero.toInt(), poltronas.toInt())
+            val database = SQLiteHelperDB(this)
+            database.cadastraSala(sala)
 
-        btn_cancelar.setOnClickListener {
+            Toast.makeText(this, "A sala foi cadastrada!", Toast.LENGTH_SHORT).show()
+
+            finish()
+
+        }
+
+        bt_Cancelar_cad_sala.setOnClickListener{
             finish()
         }
+
     }
 }

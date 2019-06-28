@@ -34,7 +34,7 @@
             android:gravity="center">
         <fragment
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:name="br.unitins.cinema.fragments.FilmeFragment"
+                android:layout_height="match_parent" class="br.unitins.cinema.fragments.FilmeFragment"
                 android:id="@+id/fragment_gerencia"/>
     </LinearLayout>
     <LinearLayout

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 
 import br.unitins.cinema.R
 
-class ContaFragment : Fragment() {
+class UsuarioFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

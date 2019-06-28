@@ -44,7 +44,7 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:ems="10"
                 android:id="@+id/duracao" android:layout_marginLeft="20dp" android:hint="Em minutos (SOMENTE NÚMEROS)"
                 android:layout_marginRight="20dp"/>
@@ -83,7 +83,7 @@
                 <Button
                         android:text="CANCELAR"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" android:id="@+id/bt_Cancelar_Cadastro"
+                        android:layout_height="match_parent" android:id="@+id/bt_Cancelar_Cadastro_filme"
                         android:background="@color/corCinza" android:layout_weight="1" tools:text="CANCELAR"
                         android:textColor="@android:color/white" android:textStyle="bold"/>
                 <Button
